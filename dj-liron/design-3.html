@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DJ לירון שאול · Stories</title>
+<meta name="description" content="DJ LIRON SHAUL – בנו את החינה שלכם ושלחו ללירון בוואטסאפ.">
+<meta property="og:image" content="img/booth.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&display=swap">
+<style>
+/* Layout: an app screen. Profile header + story highlights (tap to open full-screen stories), then an interactive "build your henna" planner that writes the WhatsApp message */
+:root{
+  --bg:#f3f1f8; --surface:#ffffff; --ink:#1c1631; --soft:#6b6485; --line:#e2ddef;
+  --henna:#d9530f; --saffron:#f2a516; --plum:#7a2e8e;
+  --ring:conic-gradient(from 200deg,var(--saffron),var(--henna),#c21d5b,var(--plum),var(--saffron));
+  --display:"Secular One","Heebo",system-ui,sans-serif; --body:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#100d1a;--surface:#1b1729;--ink:#f3effa;--soft:#a69fbd;--line:#2c2640;--henna:#ff7a33;--saffron:#ffc048;--plum:#b06ad0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#100d1a;--surface:#1b1729;--ink:#f3effa;--soft:#a69fbd;--line:#2c2640;--henna:#ff7a33;--saffron:#ffc048;--plum:#b06ad0;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+a{color:inherit}
+img{max-width:100%;display:block}
+.app{max-width:520px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 120px}
+:focus-visible{outline:2px solid var(--henna);outline-offset:3px;border-radius:8px}
+
+/* cover + profile */
+.cover{height:150px;border-radius:22px;overflow:hidden;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.prof{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:end;margin-top:-46px;padding-inline:10px}
+.av{width:104px;height:104px;border-radius:50%;padding:4px;background:var(--ring);cursor:pointer;border:0}
+.av span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#0d0b12;border:4px solid var(--bg);overflow:hidden}
+.av img{width:62%;}
+.who{padding-top:60px;min-width:0}
+.who h1{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1;margin:0}
+.who p{margin:2px 0 0;color:var(--soft);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.stats div{text-align:center;padding:12px 4px}
+.stats div+div{border-inline-start:1px solid var(--line)}
+.stats b{display:block;font-family:var(--display);font-size:22px;font-weight:400;font-variant-numeric:tabular-nums}
+.stats small{color:var(--soft);font-size:12.5px}
+.bio{margin:16px 6px 0;font-size:15.5px}
+.bio b{color:var(--henna)}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.quick a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:14px;text-decoration:none;font-weight:700;background:var(--surface);border:1px solid var(--line)}
+.quick a.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.quick svg{width:18px;height:18px;fill:currentColor}
+
+/* highlights */
+.hl{display:flex;gap:14px;overflow-x:auto;padding:22px 4px 6px;scrollbar-width:none}
+.hl button{all:unset;cursor:pointer;display:grid;justify-items:center;gap:6px;font-size:13px;flex:0 0 auto}
+.hl .ring{width:70px;height:70px;border-radius:50%;padding:3px;background:var(--ring)}
+.hl .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--bg)}
+.hl .ring.q{display:grid;place-items:center}
+.hl .ring.q span{width:100%;height:100%;border-radius:50%;border:3px solid var(--bg);background:var(--surface);display:grid;place-items:center;font-family:var(--display);font-size:26px;color:var(--henna)}
+
+/* cards */
+.card{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px}
+h2{font-family:var(--display);font-weight:400;font-size:25px;line-height:1.15;margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--soft);margin:0 0 16px;font-size:14.5px}
+.step{font-size:13px;font-weight:700;color:var(--soft);margin:18px 0 8px;letter-spacing:.02em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:14.5px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip[aria-pressed="true"]{background:var(--henna);border-color:var(--henna);color:#fff}
+input[type=date],input[type=text]{font:inherit;width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.range{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+input[type=range]{width:100%;accent-color:var(--henna)}
+.range output{font-family:var(--display);font-size:22px;min-width:3.5ch;text-align:center;font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.ticket{margin-top:20px;border-radius:18px;padding:18px;background:linear-gradient(135deg,var(--henna),#c21d5b 60%,var(--plum));color:#fff;position:relative;overflow:hidden}
+.ticket::after{content:"";position:absolute;inset:auto -40px -60px auto;width:180px;height:180px;border-radius:50%;border:2px dashed rgba(255,255,255,.35)}
+.ticket small{opacity:.85;font-size:12px;letter-spacing:.12em}
+.ticket pre{font:inherit;white-space:pre-wrap;margin:8px 0 14px;font-size:15px;line-height:1.6}
+.ticket a{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#1c1631;border-radius:12px;padding:13px;text-decoration:none;font-weight:700;position:relative;z-index:1}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:14px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--henna);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:8px 0 0;color:var(--soft)}
+
+.links{display:grid;gap:10px;margin-top:22px}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line);text-decoration:none;font-weight:500}
+.links a span:last-child{color:var(--soft);font-size:14px;direction:ltr}
+.foot{margin-top:26px;text-align:center;color:var(--soft);font-size:13px}
+
+.dock{position:fixed;z-index:6;inset:auto 0 0;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));
+  background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.dock a{max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;padding:15px;border-radius:16px;text-decoration:none;font-weight:700;color:#fff;background:linear-gradient(90deg,var(--henna),#c21d5b)}
+.dock svg{width:20px;height:20px;fill:currentColor}
+
+/* story viewer */
+.sv{position:fixed;inset:0;z-index:30;background:#000;display:grid;place-items:center}
+.sv .frame{position:relative;width:min(100vw,calc(100vh * 9 / 16));height:min(100vh,calc(100vw * 16 / 9));max-height:100%;overflow:hidden;background:#111}
+.sv .media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sv .shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 22%,transparent 55%,rgba(0,0,0,.8))}
+.sv .bars{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));inset-inline:10px;display:flex;gap:4px;z-index:2;direction:ltr}
+.sv .bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}
+.sv .bars i b{display:block;height:100%;width:0;background:#fff}
+.sv .head{position:absolute;top:calc(22px + env(safe-area-inset-top,0px));inset-inline:12px;display:flex;align-items:center;gap:10px;color:#fff;z-index:2;font-weight:700;font-size:14px}
+.sv .head img{width:34px;height:34px;border-radius:50%;background:#000;padding:6px;object-fit:contain}
+.sv .x{margin-inline-start:auto;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.sv .cap{position:absolute;bottom:calc(28px + env(safe-area-inset-bottom,0px));inset-inline:20px;color:#fff;z-index:2;font-size:19px;line-height:1.45;font-weight:500;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.sv .bubble{position:absolute;inset:auto 18px 30%;z-index:2;background:#fff;color:#111;border-radius:18px 18px 4px 18px;padding:16px 18px;font-size:17px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sv .bubble small{display:block;color:#667;font-size:12px;margin-top:8px;text-align:left}
+.sv .tap{position:absolute;top:0;bottom:0;width:40%;z-index:1;background:none;border:0;cursor:pointer}
+.sv .tap.prev{right:0}.sv .tap.next{left:0}
+.sv .tile-bg{position:absolute;inset:0;background:var(--ring);filter:saturate(.9)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="cover"><img src="img/red-beams.jpg" alt="אורות על רחבת הריקודים"></div>
+  <div class="prof">
+    <button class="av" id="avatar" aria-label="פתיחת סטוריז"><span><img src="img/emblem.png" alt="LS"></span></button>
+    <div class="who"><h1>DJ לירון שאול</h1><p>מוזיקה ייחודית לחינות ואירועים</p></div>
+  </div>
+  <div class="stats">
+    <div><b>700</b><small>אורחים ברחבה</small></div>
+    <div><b>03:30</b><small>ועוד רוקדים</small></div>
+    <div><b>8+</b><small>סגנונות ועדות</small></div>
+  </div>
+  <p class="bio">כשמסורת פוגשת קצב, <b>החינה הופכת למסיבה</b> 🔥 מהפליי בכניסה ועד המסיבה ברחבה, עם חיבור אמיתי לקהל ומוזיקה מכל העדות.</p>
+  <div class="quick">
+    <a class="main" href="#plan">בנו את החינה שלכם</a>
+    <a href="tel:0524582640"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>חיוג</a>
+  </div>
+
+  <nav class="hl" aria-label="סטוריז">
+    <button data-s="henna"><span class="ring"><img src="img/henna-throne.jpg" alt=""></span>חינות</button>
+    <button data-s="entry"><span class="ring"><img src="img/decks-bride.jpg" alt=""></span>כניסות</button>
+    <button data-s="floor"><span class="ring"><img src="img/lift-pink.jpg" alt=""></span>הרחבה</button>
+    <button data-s="love"><span class="ring q"><span>❤</span></span>המלצות</button>
+    <button data-s="booth"><span class="ring"><img src="img/booth2.jpg" alt=""></span>העמדה</button>
+  </nav>
+
+  <section class="card" id="plan">
+    <h2>בנו את החינה שלכם</h2>
+    <p class="sub">בחרו מה חשוב לכם. ההודעה ללירון נכתבת לבד.</p>
+
+    <div class="step">מתי?</div>
+    <div class="two"><input type="date" id="p-date" aria-label="תאריך"><input type="text" id="p-venue" placeholder="אולם / עיר" aria-label="אולם או עיר"></div>
+
+    <div class="step">כמה אורחים?</div>
+    <div class="range"><input type="range" id="p-guests" min="50" max="800" step="25" value="300" aria-label="מספר אורחים"><output id="p-gout">300</output></div>
+
+    <div class="step">איזו מוזיקה בטקס?</div>
+    <div class="chips" data-group="styles">
+      <button class="chip" aria-pressed="true">מרוקאי</button><button class="chip" aria-pressed="false">תימני</button><button class="chip" aria-pressed="false">עיראקי</button><button class="chip" aria-pressed="false">פרסי</button><button class="chip" aria-pressed="false">טריפוליטאי</button><button class="chip" aria-pressed="false">כורדי</button><button class="chip" aria-pressed="false">מעורב</button>
+    </div>
+
+    <div class="step">ואחרי הטקס?</div>
+    <div class="chips" data-group="party">
+      <button class="chip" aria-pressed="true">ים תיכוני</button><button class="chip" aria-pressed="true">מיינסטרים</button><button class="chip" aria-pressed="false">מזרחית קלאסית</button><button class="chip" aria-pressed="false">להיטי 2000</button>
+    </div>
+
+    <div class="step">רגעים מיוחדים</div>
+    <div class="chips" data-group="moments">
+      <button class="chip" aria-pressed="true">כניסה עם פליי</button><button class="chip" aria-pressed="false">זפה ותופים</button><button class="chip" aria-pressed="false">שיר כניסה אישי</button><button class="chip" aria-pressed="false">הפתעה לכלה</button>
+    </div>
+
+    <div class="ticket" aria-live="polite">
+      <small>ההודעה שתישלח</small>
+      <pre id="p-out"></pre>
+      <a id="p-send" href="https://wa.me/972524582640" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>שליחה ללירון בוואטסאפ</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>שאלות שכולם שואלים</h2>
+    <details><summary>כמה זמן מראש כדאי לשריין?</summary><p>כמה שיותר מוקדם, במיוחד בעונת האירועים. שלחו תאריך בוואטסאפ ותקבלו תשובה אם הוא פנוי.</p></details>
+    <details><summary>אפשר לבקש שירים?</summary><p>בטח. לפני האירוע יושבים יחד, בונים רשימה, שירי כניסה ורגעים שחשובים לכם.</p></details>
+    <details><summary>מתאים גם לחינה מעורבת של כמה עדות?</summary><p>זה בדיוק הכיף. מוזיקה מכל העדות ושילוב בין מסורת למיינסטרים.</p></details>
+    <details><summary>עושה גם חתונות ואירועים אחרים?</summary><p>כן, לצד החינות. ספרו מה האירוע ונתאים את הסט.</p></details>
+  </section>
+
+  <div class="links">
+    <a href="https://www.instagram.com/djlironshaul" target="_blank" rel="noopener"><span>אינסטגרם</span><span>@djlironshaul</span></a>
+    <a href="https://www.tiktok.com/@djlironshaul" target="_blank" rel="noopener"><span>טיקטוק</span><span>@djlironshaul</span></a>
+    <a href="https://www.facebook.com/share/1FdwK8XuCj/" target="_blank" rel="noopener"><span>פייסבוק</span><span>DJ Liron Shaul</span></a>
+    <a href="mailto:lironacs@gmail.com"><span>מייל</span><span>lironacs@gmail.com</span></a>
+    <a href="tel:0524582640"><span>טלפון</span><span>052-4582640</span></a>
+  </div>
+  <p class="foot">DJ LIRON SHAUL · חינות ואירועים</p>
+</main>
+
+<div class="dock"><a href="https://wa.me/972524582640" target="_blank" rel="noopener" id="dock-wa"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>בדיקת תאריך פנוי</a></div>
+
+<div class="sv" id="sv" hidden role="dialog" aria-label="סטורי">
+  <div class="frame">
+    <div id="sv-body"></div>
+    <div class="shade"></div>
+    <div class="bars" id="sv-bars"></div>
+    <div class="head"><img src="img/emblem.png" alt="">djlironshaul<button class="x" id="sv-x" aria-label="סגירה">✕</button></div>
+    <button class="tap prev" id="sv-prev" aria-label="הקודם"></button><button class="tap next" id="sv-next" aria-label="הבא"></button>
+  </div>
+</div>
+
+<script>
+const S={
+ henna:[{img:'henna-throne',cap:'טקס החינה. מוזיקה מסורתית, כבוד לכל מנהג 🪬'},{img:'arches-crowd',cap:'וכשהטקס נגמר, הרחבה מתמלאת'},{img:'bride-friends',cap:'הכלה והחברות 💛'}],
+ entry:[{img:'decks-bride',cap:'הפליי בכניסה ▶️'},{img:'gold-smoke',cap:'עשן, תופים וזפה בתזמון מדויק'},{img:'decks-arch',cap:'רגע הכניסה שכולם זוכרים'}],
+ floor:[{img:'vertical-party',cap:'מהשיר הראשון ועד האחרון'},{img:'lift-pink',cap:'מרימים אחד אחד מהכיסא'},{img:'crowd-red',cap:'עד 03:30 בבוקר 🔥'},{img:'guys',cap:'החבר׳ה של החתן'}],
+ love:[{q:'שברת לנו את האולם עד 03:30 בבוקר! גרמת ל־700 איש לעמוד על הרגליים מתחילת הערב ועד סופו.'},{q:'אמאלה, אתה אלוף! איזו בחירה נכונה וראש שקט עשית לנו. לא הייתי צריכה לדאוג מכלום.'},{q:'הרמת את האווירה והקהל לא הפסיק לרקוד. תודה שזרמת עם כל הבקשות שלנו ❤️'},{q:'עם כמה שהייתי בלחץ, הכל היה לא פחות ממושלם! העפת את כולם!'}],
+ booth:[{img:'booth',cap:'מאחורי העמדה'},{img:'decks-blue',cap:'הנוף שלי מהעמדה'},{img:'bw-stage',cap:'DJ LIRON SHAUL'}]
+};
+const order=['henna','entry','floor','love','booth'];
+const sv=document.getElementById('sv'),body=document.getElementById('sv-body'),bars=document.getElementById('sv-bars');
+let set,si,idx,timer,start,raf;const DUR=5000;
+function open(k){set=k;idx=0;sv.hidden=false;document.body.style.overflow='hidden';render()}
+function close(){sv.hidden=true;document.body.style.overflow='';cancelAnimationFrame(raf)}
+function render(){const it=S[set][idx];
+ bars.innerHTML=S[set].map((_,j)=>`<i><b style="width:${j<idx?100:0}%"></b></i>`).join('');
+ body.innerHTML=it.img?`<img class="media" src="img/${it.img}.jpg" alt=""><div class="cap">${it.cap}</div>`
+  :`<div class="tile-bg"></div><div class="bubble">${it.q}<small>WhatsApp ✓✓</small></div><div class="cap">מה כותבים אחרי האירוע</div>`;
+ start=performance.now();cancelAnimationFrame(raf);tick()}
+function tick(){const p=Math.min(1,(performance.now()-start)/DUR);const b=bars.children[idx]?.firstChild;if(b)b.style.width=p*100+'%';if(p>=1)return next();raf=requestAnimationFrame(tick)}
+function next(){if(idx<S[set].length-1){idx++;render()}else{const n=order.indexOf(set)+1;if(n<order.length){set=order[n];idx=0;render()}else close()}}
+function prev(){if(idx>0){idx--;render()}else{const n=order.indexOf(set)-1;if(n>=0){set=order[n];idx=S[set].length-1;render()}else render()}}
+document.querySelectorAll('.hl button').forEach(b=>b.onclick=()=>open(b.dataset.s));
+document.getElementById('avatar').onclick=()=>open('henna');
+document.getElementById('sv-x').onclick=close;document.getElementById('sv-next').onclick=next;document.getElementById('sv-prev').onclick=prev;
+addEventListener('keydown',e=>{if(sv.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')next();if(e.key==='ArrowRight')prev()});
+
+// planner
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.chips .chip').forEach(c=>c.onclick=()=>{c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')!=='true');build()});
+['p-date','p-venue','p-guests'].forEach(id=>$(id).addEventListener('input',build));
+function picked(g){return [...document.querySelectorAll(`[data-group="${g}"] .chip[aria-pressed="true"]`)].map(c=>c.textContent)}
+function build(){$('p-gout').textContent=$('p-guests').value;
+ const d=$('p-date').value?new Date($('p-date').value).toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'עוד גמישים';
+ const t=`היי לירון! 🪬 מתכננים חינה\n📅 ${d}${$('p-venue').value?'\n📍 '+$('p-venue').value:''}\n👥 כ־${$('p-guests').value} אורחים\n🥁 טקס: ${picked('styles').join(', ')||'נשמח להמלצה'}\n🔥 מסיבה: ${picked('party').join(', ')||'נשמח להמלצה'}\n✨ ${picked('moments').join(', ')||'בלי בקשות מיוחדות'}\nאתה פנוי?`;
+ $('p-out').textContent=t;$('p-send').href='https://wa.me/972524582640?text='+encodeURIComponent(t)}
+build();
+</script>
+</body>
+</html>

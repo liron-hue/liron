@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DJ לירון שאול · Stage</title>
+<meta name="description" content="DJ LIRON SHAUL – חינות ואירועים. מהפליי בכניסה ועד המסיבה ברחבה.">
+<meta property="og:image" content="img/bw-stage.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Anton&family=Rubik:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a club night. Full-bleed B&W hero lit by live beams, then a "setlist" of the evening with BPM, a film-strip gallery and huge quote type */
+:root{
+  --black:#08070a; --char:#141217; --line:#2a2630; --white:#f4f1f6; --dim:#a39fab;
+  --laser:#ff2e4d; --laser-2:#ff7a3d;
+  --heb-display:"Karantina","Anton",Impact,sans-serif; --lat:"Anton",Impact,sans-serif;
+  --body:"Rubik",system-ui,-apple-system,"Segoe UI",Arial,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:16.5px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.g{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.max{max-width:1080px;margin:0 auto}
+:focus-visible{outline:2px solid var(--laser);outline-offset:3px}
+
+/* HERO */
+.hero{position:relative;min-height:min(92vh,760px);display:grid;align-items:end;isolation:isolate;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-3;filter:grayscale(1) contrast(1.15) brightness(.8)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-2;mix-blend-mode:screen}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--black) 4%,rgba(8,7,10,.55) 45%,rgba(8,7,10,.15))}
+.top{position:absolute;top:0;inset-inline:0;display:flex;justify-content:space-between;align-items:center;padding-block:calc(16px + env(safe-area-inset-top,0px)) 0}
+.top img{width:150px}
+.live{font-family:var(--mono);font-size:12px;letter-spacing:.12em;display:flex;align-items:center;gap:8px;color:var(--dim)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--laser);box-shadow:0 0 12px var(--laser);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero-in{padding-block:0 40px}
+.kicker{font-family:var(--mono);font-size:13px;color:var(--laser);letter-spacing:.14em}
+.name{font-family:var(--lat);font-size:clamp(64px,19vw,190px);line-height:.86;margin:10px 0 0;letter-spacing:-.01em;direction:ltr;text-align:right}
+.name span{display:block;-webkit-text-stroke:1.5px var(--white);color:transparent}
+.heb{font-family:var(--heb-display);font-size:clamp(34px,8vw,64px);line-height:1;margin:16px 0 0;font-weight:700}
+.heb em{font-style:normal;color:var(--laser)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--white)}
+.btn.hot{background:var(--laser);border-color:var(--laser);box-shadow:0 0 30px -4px var(--laser)}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}
+.eq b{width:3px;background:currentColor;animation:eq .9s ease-in-out infinite}
+.eq b:nth-child(2){animation-delay:-.3s}.eq b:nth-child(3){animation-delay:-.6s}.eq b:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:30%}50%{height:100%}}
+
+/* marquee */
+.marq{direction:ltr;border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding-block:14px;background:var(--char)}
+.marq div{display:inline-block;font-family:var(--heb-display);font-size:34px;line-height:1;animation:mq 40s linear infinite;white-space:nowrap}
+.marq div span{color:var(--laser);margin-inline:18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding-block:72px 0}
+.lbl{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.lbl::before{content:"";width:22px;height:1px;background:var(--laser)}
+h2{font-family:var(--heb-display);font-weight:700;font-size:clamp(46px,10vw,88px);line-height:.95;margin:12px 0 18px;text-wrap:balance}
+h2 em{font-style:normal;color:var(--laser)}
+.cols{display:grid;gap:28px}
+@media(min-width:820px){.cols{grid-template-columns:1.1fr 1fr;align-items:center}}
+.about p{color:#d9d5de;max-width:52ch;margin:0 0 12px;font-size:18px}
+.about img{border-radius:6px;aspect-ratio:4/5;object-fit:cover;width:100%}
+
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px}
+.nums div{background:var(--black);padding:18px}
+.nums b{font-family:var(--lat);font-size:46px;line-height:1;display:block;font-variant-numeric:tabular-nums}
+.nums small{color:var(--dim)}
+
+/* setlist */
+.set{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.set li{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+.set .t{font-family:var(--mono);color:var(--dim);font-size:14px;font-variant-numeric:tabular-nums}
+.set h3{margin:0;font-family:var(--heb-display);font-size:34px;line-height:1;font-weight:700}
+.set p{margin:6px 0 0;color:var(--dim);font-size:15px}
+.set .bpm{font-family:var(--mono);font-size:13px;color:var(--laser);white-space:nowrap}
+.set li:hover h3{color:var(--laser)}
+.styles{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.styles span{font-family:var(--mono);font-size:13px;padding:8px 12px;border:1px solid var(--line);border-radius:4px}
+
+/* film strip */
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--laser) var(--char)}
+.strip button{all:unset;cursor:pointer;flex:0 0 auto;scroll-snap-align:start;height:min(56vw,360px);aspect-ratio:3/4;overflow:hidden;border-radius:4px;position:relative}
+.strip button.w{aspect-ratio:16/10}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;filter:saturate(1.1)}
+.strip button:hover img{transform:scale(1.04)}
+.hint{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px}
+
+/* quotes */
+.quote{font-family:var(--heb-display);font-size:clamp(34px,7vw,64px);line-height:1.02;margin:0;font-weight:700;text-wrap:balance}
+.quote mark{background:none;color:var(--laser)}
+.qs{display:grid;gap:16px;margin-top:32px}
+@media(min-width:820px){.qs{grid-template-columns:repeat(3,1fr)}}
+.qs blockquote{margin:0;padding:20px;border:1px solid var(--line);border-radius:6px;background:var(--char);color:#d9d5de;font-size:15.5px}
+.qs cite{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:12px;color:var(--dim)}
+
+/* contact */
+.contact{margin-top:72px;padding-block:64px;background:radial-gradient(ellipse at 50% 120%,rgba(255,46,77,.35),transparent 60%),var(--char);border-top:1px solid var(--line)}
+.grid{display:grid;gap:12px;margin-top:20px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(4,1fr)}}
+.tile{display:flex;justify-content:space-between;align-items:center;padding:18px;border:1px solid var(--line);border-radius:6px;text-decoration:none;background:var(--black);transition:border-color .2s}
+.tile:hover{border-color:var(--laser)}
+.tile small{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.1em}
+.tile b{font-size:17px}
+.tile .arr{color:var(--laser);font-size:20px}
+.mail{margin-top:22px;color:var(--dim);font-family:var(--mono);font-size:14px;user-select:all}
+footer{padding-block:28px calc(90px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--dim);font-size:13px}
+footer img{width:140px;margin:0 auto 10px;opacity:.7}
+
+.fab{position:fixed;z-index:5;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:calc(16px + env(safe-area-inset-left,0px));display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;background:var(--laser);color:var(--white);text-decoration:none;font-weight:700;box-shadow:0 10px 30px -6px var(--laser)}
+.lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.95);display:grid;place-items:center;padding:20px}
+.lb img{max-height:88vh;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/bw-stage.jpg" alt="לירון שאול מתקלט על הבמה">
+  <canvas id="beams" aria-hidden="true"></canvas>
+  <div class="top g"><img src="img/logo.png" alt="LIRON SHAUL"><div class="live"><i></i>BOOKING 2026–27</div></div>
+  <div class="hero-in g"><div class="max">
+    <div class="kicker">// DJ · HENNA · EVENTS</div>
+    <h1 class="name">LIRON<span>SHAUL</span></h1>
+    <p class="heb">מסורת נכנסת. <em>מסיבה יוצאת.</em></p>
+    <div class="btns">
+      <a class="btn hot" href="https://wa.me/972524582640?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%95%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%AA%D7%90%D7%A8%D7%99%D7%9A%20%D7%9C%D7%97%D7%99%D7%A0%D7%94" target="_blank" rel="noopener"><span class="eq"><b></b><b></b><b></b><b></b></span>בדיקת תאריך</a>
+      <a class="btn" href="#set">איך נראה הערב</a>
+    </div>
+  </div></div>
+</header>
+
+<div class="marq" aria-hidden="true"><div>מרוקאי<span>✦</span>תימני<span>✦</span>עיראקי<span>✦</span>פרסי<span>✦</span>טריפוליטאי<span>✦</span>כורדי<span>✦</span>ים תיכוני<span>✦</span>מזרחית<span>✦</span>מיינסטרים<span>✦</span>מרוקאי<span>✦</span>תימני<span>✦</span>עיראקי<span>✦</span>פרסי<span>✦</span>טריפוליטאי<span>✦</span>כורדי<span>✦</span>ים תיכוני<span>✦</span>מזרחית<span>✦</span>מיינסטרים<span>✦</span>מרוקאי<span>✦</span>תימני<span>✦</span>עיראקי<span>✦</span>פרסי<span>✦</span>טריפוליטאי<span>✦</span>כורדי<span>✦</span>ים תיכוני<span>✦</span>מזרחית<span>✦</span>מיינסטרים<span>✦</span>מרוקאי<span>✦</span>תימני<span>✦</span>עיראקי<span>✦</span>פרסי<span>✦</span>טריפוליטאי<span>✦</span>כורדי<span>✦</span>ים תיכוני<span>✦</span>מזרחית<span>✦</span>מיינסטרים<span>✦</span></div></div>
+
+<section class="g about"><div class="max cols">
+  <div>
+    <div class="lbl">About</div>
+    <h2>כשמסורת פוגשת קצב, <em>החינה הופכת למסיבה</em></h2>
+    <p>אני דואג שכל רגע באירוע שלכם יהיה מלא אנרגיה, שמחה וקצב, מהפליי בכניסה ועד המסיבה ברחבה.</p>
+    <p>חיבור אמיתי לקהל, מוזיקה ייחודית מכל העדות, ושילוב בין מסורת למיינסטרים. זה הקסם שהופך חינה לחוויה אחת גדולה.</p>
+    <div class="nums"><div><b>700</b><small>אורחים שלא ישבו כל הערב</small></div><div><b>03:30</b><small>השעה שבה הרחבה עוד בערה</small></div></div>
+  </div>
+  <img src="img/booth.jpg" alt="לירון בעמדה" loading="lazy">
+</div></section>
+
+<section class="g" id="set"><div class="max">
+  <div class="lbl">Tonight's Setlist</div>
+  <h2>הסט של <em>הערב שלכם</em></h2>
+  <ol class="set">
+    <li><span class="t">19:30</span><div><h3>קבלת פנים</h3><p>גרוב רך שמכניס לאווירה בזמן שהאורחים מגיעים.</p></div><span class="bpm" dir="ltr">90–100 BPM</span></li>
+    <li><span class="t">20:30</span><div><h3>הכניסה הגדולה</h3><p>הפליי בכניסה, תופים וזפה. שיא ראשון בתזמון מדויק.</p></div><span class="bpm" dir="ltr">110 BPM</span></li>
+    <li><span class="t">21:00</span><div><h3>טקס החינה</h3><p>מוזיקה מסורתית מהעדה שלכם, בכבוד ובשמחה.</p></div><span class="bpm" dir="ltr">100–115 BPM</span></li>
+    <li><span class="t">22:00</span><div><h3>סט ים תיכוני</h3><p>כולם קמים. השירים שכל המשפחה מכירה.</p></div><span class="bpm" dir="ltr">120 BPM</span></li>
+    <li><span class="t">23:30</span><div><h3>המסיבה</h3><p>מיינסטרים, להיטים ומעברים חלקים עד אור הבוקר.</p></div><span class="bpm" dir="ltr">128+ BPM</span></li>
+  </ol>
+  <p class="hint">* לוח זמנים לדוגמה. כל ערב נבנה יחד איתכם בפגישת תכנון.</p>
+</div></section>
+
+<section class="g" id="gallery"><div class="max">
+  <div class="lbl">From the floor</div>
+  <h2>ככה זה <em>נראה מהעמדה</em></h2>
+  <div class="strip">
+    <button aria-label="הגדלה"><img src="img/vertical-party.jpg" alt="מסיבה" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/red-beams.jpg" alt="אורות אדומים על הקהל" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/decks-blue.jpg" alt="עמדת תקלוט מול הקהל" loading="lazy"></button>
+    <button aria-label="הגדלה"><img src="img/lift-pink.jpg" alt="הרמה על כיסא" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/henna-throne.jpg" alt="טקס חינה" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/red-laser.jpg" alt="לייזרים" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/decks-arch.jpg" alt="קשתות ותאורה" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/teal-stage.jpg" alt="במה" loading="lazy"></button>
+    <button class="w" aria-label="הגדלה"><img src="img/bw-palm.jpg" alt="אולם בשחור לבן" loading="lazy"></button>
+  </div>
+  <div class="hint">← גללו לצד</div>
+</div></section>
+
+<section class="g"><div class="max">
+  <div class="lbl">Reviews</div>
+  <p class="quote">"שברת לנו את האולם עד <mark>03:30</mark> בבוקר. <mark>700</mark> איש על הרגליים מתחילת הערב ועד סופו."</p>
+  <div class="qs">
+    <blockquote>אמאלה, אתה אלוף! איזו בחירה נכונה וראש שקט עשית לנו. לא הייתי צריכה לדאוג מכלום.<cite>// WhatsApp</cite></blockquote>
+    <blockquote>הרמת את האווירה והקהל לא הפסיק לרקוד. תודה שזרמת עם כל הבקשות שלנו.<cite>// WhatsApp</cite></blockquote>
+    <blockquote>עם כמה שהייתי בלחץ, הכל היה לא פחות ממושלם! הרמת אחד אחד מהכיסא.<cite>// WhatsApp</cite></blockquote>
+  </div>
+</div></section>
+
+<section class="contact g" id="contact"><div class="max">
+  <div class="lbl">Booking</div>
+  <h2>יש לכם תאריך? <em>בואו נדבר.</em></h2>
+  <div class="grid">
+    <a class="tile" href="https://wa.me/972524582640" target="_blank" rel="noopener"><span><small>WHATSAPP</small><b>שלחו הודעה</b></span><span class="arr">↖</span></a>
+    <a class="tile" href="tel:0524582640"><span><small>PHONE</small><b>052-4582640</b></span><span class="arr">↖</span></a>
+    <a class="tile" href="https://www.instagram.com/djlironshaul" target="_blank" rel="noopener"><span><small>INSTAGRAM</small><b>@djlironshaul</b></span><span class="arr">↖</span></a>
+    <a class="tile" href="https://www.tiktok.com/@djlironshaul" target="_blank" rel="noopener"><span><small>TIKTOK</small><b>@djlironshaul</b></span><span class="arr">↖</span></a>
+  </div>
+  <div class="mail">lironacs@gmail.com · <a href="https://www.facebook.com/share/1FdwK8XuCj/" target="_blank" rel="noopener">Facebook</a></div>
+</div></section>
+
+<footer class="g"><img src="img/logo.png" alt="LIRON SHAUL">DJ LIRON SHAUL · חינות ואירועים</footer>
+
+<a class="fab" href="https://wa.me/972524582640" target="_blank" rel="noopener"><span class="eq"><b></b><b></b><b></b><b></b></span>וואטסאפ</a>
+<div class="lb" id="lb" hidden><img id="lbi" alt=""></div>
+
+<script>
+// moving stage beams
+const c=document.getElementById('beams'),x=c.getContext('2d');let W,H,t=0;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const B=[{o:.12,c:'255,46,77',s:.0007,p:0},{o:.5,c:'255,255,255',s:-.0005,p:2},{o:.88,c:'255,122,61',s:.0006,p:4},{o:.3,c:'255,46,77',s:-.0008,p:1}];
+function rs(){const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio,2);W=c.width=r.width*d;H=c.height=r.height*d}
+function draw(){x.clearRect(0,0,W,H);
+ B.forEach(b=>{const sx=W*b.o,a=Math.PI/2+Math.sin(t*b.s*16+b.p)*.55,len=H*1.4,sp=.09;
+  const g=x.createLinearGradient(sx,0,sx+Math.cos(a)*len,Math.sin(a)*len);g.addColorStop(0,`rgba(${b.c},.55)`);g.addColorStop(1,`rgba(${b.c},0)`);
+  x.fillStyle=g;x.beginPath();x.moveTo(sx,0);x.lineTo(sx+Math.cos(a-sp)*len,Math.sin(a-sp)*len);x.lineTo(sx+Math.cos(a+sp)*len,Math.sin(a+sp)*len);x.closePath();x.fill();
+  x.fillStyle=`rgba(${b.c},.9)`;x.beginPath();x.arc(sx,4,6*Math.min(devicePixelRatio,2),0,7);x.fill()});
+ t+=16;if(!reduce)requestAnimationFrame(draw)}
+addEventListener('resize',rs);rs();draw();
+
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+document.querySelectorAll('.strip button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img');lbi.src=i.src;lbi.alt=i.alt;lb.hidden=false});
+lb.onclick=()=>lb.hidden=true;addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true});
+</script>
+</body>
+</html>
