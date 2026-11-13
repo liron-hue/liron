@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="950" viewBox="0 250 1080 950">
+<defs>
+ <linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fd6ff"/><stop offset="1" stop-color="#1e6fd9"/></linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a8cf0"/><stop offset="1" stop-color="#1557b8"/></linearGradient>
+ <linearGradient id="mach" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f86f0"/><stop offset=".6" stop-color="#1f6fd9"/><stop offset="1" stop-color="#1450a8"/></linearGradient>
+ <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a96a3"/><stop offset=".45" stop-color="#f4f7fa"/><stop offset="1" stop-color="#7d8894"/></linearGradient>
+ <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9bd"/><stop offset="1" stop-color="#f4b994"/></linearGradient>
+</defs>
+<rect y="0" width="1080" height="1200" fill="#fff"/>
+<!-- floor shadows -->
+<ellipse cx="470" cy="1030" rx="230" ry="26" fill="#0b2a5c" opacity=".10"/>
+<ellipse cx="880" cy="1030" rx="150" ry="22" fill="#0b2a5c" opacity=".10"/>
+<!-- sparkles -->
+<g fill="#5cc8ff"><path d="M180 300 l10 26 26 10 -26 10 -10 26 -10 -26 -26 -10 26 -10z"/><path d="M960 330 l7 18 18 7 -18 7 -7 18 -7 -18 -18 -7 18 -7z"/><path d="M760 1000 l6 15 15 6 -15 6 -6 15 -6 -15 -15 -6 15 -6z" opacity=".8"/></g>
+<!-- MACHINE -->
+<g>
+ <rect x="840" y="560" width="22" height="120" rx="8" fill="#0b2a5c"/><rect x="938" y="560" width="22" height="120" rx="8" fill="#0b2a5c"/>
+ <rect x="830" y="548" width="140" height="28" rx="14" fill="#0b2a5c"/>
+ <rect x="770" y="660" width="230" height="345" rx="34" fill="url(#mach)"/>
+ <rect x="770" y="660" width="230" height="62" rx="30" fill="#1450a8"/>
+ <rect x="790" y="676" width="190" height="10" rx="5" fill="#5cc8ff" opacity=".5"/>
+ <rect x="800" y="745" width="170" height="80" rx="16" fill="#0b2a5c"/>
+ <circle cx="840" cy="785" r="24" fill="#fff"/><path d="M840 785 L852 770" stroke="#e0313b" stroke-width="5" stroke-linecap="round"/><circle cx="840" cy="785" r="5" fill="#0b2a5c"/>
+ <circle cx="905" cy="772" r="9" fill="#18f08b"/><circle cx="935" cy="772" r="9" fill="#ffd34d"/><rect x="890" y="796" width="60" height="12" rx="6" fill="#5cc8ff"/>
+ <circle cx="885" cy="905" r="56" fill="#fff"/><path transform="translate(885,906) scale(1.7)" d="M0,-30 C12,-14 20,-4 20,8 A20,20 0 0 1 -20,8 C-20,-4 -12,-14 0,-30Z" fill="url(#dg)"/>
+ <text x="885" y="985" text-anchor="middle" font-family="Heebo, Arial" font-weight="900" font-size="26" fill="#fff">שטיפת תהילה</text>
+ <circle cx="800" cy="1010" r="26" fill="#1b1f2a"/><circle cx="800" cy="1010" r="10" fill="#8a96a3"/>
+ <circle cx="970" cy="1010" r="26" fill="#1b1f2a"/><circle cx="970" cy="1010" r="10" fill="#8a96a3"/>
+ <circle cx="775" cy="860" r="16" fill="#0b2a5c"/>
+</g>
+<!-- HOSE -->
+<path d="M775 860 C 720 880, 700 960, 690 900 S 650 760, 640 690" fill="none" stroke="#1b1f2a" stroke-width="16" stroke-linecap="round"/>
+<path d="M775 860 C 720 880, 700 960, 690 900 S 650 760, 640 690" fill="none" stroke="#3b4252" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14"/>
+<!-- WAND -->
+<g>
+ <line x1="628" y1="600" x2="700" y2="985" stroke="url(#steel)" stroke-width="20" stroke-linecap="round"/>
+ <path d="M640 990 L760 1000 L752 1022 L620 1012 Z" fill="#c9d3dc" stroke="#7d8894" stroke-width="4" stroke-linejoin="round"/>
+ <rect x="655" y="975" width="70" height="18" rx="6" fill="#7d8894" transform="rotate(5 690 984)"/>
+ <path d="M590 560 Q 628 520 668 552 L 660 610 Q 628 640 600 616 Z" fill="none" stroke="#1b1f2a" stroke-width="18" stroke-linejoin="round"/>
+</g>
+<!-- CHARACTER -->
+<g>
+ <!-- legs -->
+ <rect x="392" y="820" width="66" height="190" rx="24" fill="#1450a8"/>
+ <rect x="482" y="820" width="66" height="190" rx="24" fill="#1450a8"/>
+ <ellipse cx="420" cy="1018" rx="52" ry="22" fill="#0b2a5c"/><ellipse cx="520" cy="1018" rx="52" ry="22" fill="#0b2a5c"/>
+ <!-- body -->
+ <path d="M360 640 Q 360 560 470 560 Q 580 560 580 640 L 580 840 Q 580 860 560 860 L 380 860 Q 360 860 360 840 Z" fill="url(#blue)"/>
+ <rect x="360" y="810" width="220" height="24" fill="#0b2a5c"/><rect x="452" y="806" width="36" height="32" rx="6" fill="#ffd34d"/>
+ <path d="M430 562 L470 610 L510 562" fill="#fff"/>
+ <!-- chest logo -->
+ <circle cx="470" cy="700" r="62" fill="#fff" stroke="#5cc8ff" stroke-width="6"/>
+ <path transform="translate(470,684) scale(1.05)" d="M0,-30 C12,-14 20,-4 20,8 A20,20 0 0 1 -20,8 C-20,-4 -12,-14 0,-30Z" fill="url(#dg)"/>
+ <text x="470" y="736" text-anchor="middle" font-family="Heebo, Arial" font-weight="900" font-size="18" fill="#0b2a5c">שטיפת תהילה</text>
+ <!-- left arm: thumbs up -->
+ <path d="M372 600 Q 300 640 290 560" fill="none" stroke="#1e6fd9" stroke-width="46" stroke-linecap="round"/>
+ <g fill="#8e5bd8">
+  <ellipse cx="290" cy="525" rx="32" ry="34"/>
+  <rect x="258" y="458" width="17" height="56" rx="8.5" transform="rotate(-18 266 510)"/>
+  <rect x="275" y="448" width="17" height="62" rx="8.5" transform="rotate(-6 283 510)"/>
+  <rect x="293" y="450" width="17" height="60" rx="8.5" transform="rotate(6 301 510)"/>
+  <rect x="309" y="462" width="16" height="50" rx="8" transform="rotate(18 317 512)"/>
+  <rect x="318" y="512" width="16" height="42" rx="8" transform="rotate(55 326 540)"/>
+ </g>
+ <!-- right arm to wand handle -->
+ <path d="M568 610 Q 600 660 612 600" fill="none" stroke="#1e6fd9" stroke-width="44" stroke-linecap="round"/>
+ <rect x="590" y="560" width="54" height="56" rx="18" fill="#8e5bd8"/>
+ <!-- head -->
+ <rect x="448" y="520" width="44" height="50" fill="#f4b994"/>
+ <circle cx="470" cy="450" r="100" fill="url(#skin)"/>
+ <ellipse cx="370" cy="460" rx="16" ry="24" fill="#f4b994"/><ellipse cx="570" cy="460" rx="16" ry="24" fill="#f4b994"/>
+ <!-- cap -->
+ <path d="M372 430 Q 375 335 470 335 Q 565 335 568 430 Z" fill="url(#blue)"/>
+ <path d="M372 425 Q 470 445 600 418 Q 610 440 580 448 Q 470 462 368 440 Z" fill="#0b2a5c"/>
+ <path transform="translate(470,392) scale(0.9)" d="M0,-30 C12,-14 20,-4 20,8 A20,20 0 0 1 -20,8 C-20,-4 -12,-14 0,-30Z" fill="#fff"/>
+ <!-- face -->
+ <ellipse cx="432" cy="480" rx="11" ry="14" fill="#1b1f2a"/><ellipse cx="508" cy="480" rx="11" ry="14" fill="#1b1f2a"/>
+ <circle cx="436" cy="475" r="4" fill="#fff"/><circle cx="512" cy="475" r="4" fill="#fff"/>
+ <circle cx="410" cy="512" r="15" fill="#ff9a8a" opacity=".55"/><circle cx="530" cy="512" r="15" fill="#ff9a8a" opacity=".55"/>
+ <path d="M440 515 Q 470 548 500 515" fill="#c2453f" stroke="#1b1f2a" stroke-width="5" stroke-linejoin="round"/>
+</g>
+<text x="540" y="1110" text-anchor="middle" font-family="Heebo, Arial" font-weight="900" font-size="78" fill="#0b2a5c" direction="rtl">שטיפת תהילה</text>
+<text x="540" y="1165" text-anchor="middle" font-family="Heebo, Arial" font-weight="700" font-size="34" fill="#1e6fd9" direction="rtl">ניקוי ספות · מזרנים · שטיחים</text>
+</svg>
