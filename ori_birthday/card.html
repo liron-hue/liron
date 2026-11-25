@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Secular+One&display=block" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1350px;overflow:hidden}
+  body{font-family:'Rubik',sans-serif;color:#fff;
+    background:radial-gradient(ellipse at 50% 30%,#1d3a8a 0%,#0f1f52 55%,#081233 100%);position:relative}
+  #confetti{position:absolute;inset:0;pointer-events:none}
+  .logo{position:absolute;top:44px;left:0;right:0;display:flex;justify-content:center}
+  .logo-box{display:flex;align-items:center;gap:18px;background:#fff;border-radius:999px;padding:14px 38px 14px 30px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .logo-mark{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#ffb703,#fb8500);display:flex;align-items:center;justify-content:center;font-family:'Secular One';font-size:34px;color:#0f1f52}
+  .logo-text{line-height:1}
+  .logo-text b{display:block;font-family:'Secular One';font-size:42px;color:#0f1f52;letter-spacing:1px}
+  .logo-text span{display:block;font-size:20px;color:#3b4a7a;font-weight:500;margin-top:4px}
+  .title{position:absolute;top:170px;left:0;right:0;text-align:center}
+  .title h1{font-family:'Secular One';font-size:118px;line-height:1;color:#ffd166;text-shadow:0 6px 0 #c77d00,0 14px 30px rgba(0,0,0,.45)}
+  .title h2{font-size:54px;font-weight:700;margin-top:14px}
+  .photo-main{position:absolute;top:400px;right:120px;width:560px;height:640px;border-radius:28px;overflow:hidden;
+    border:10px solid #fff;box-shadow:0 24px 50px rgba(0,0,0,.5);transform:rotate(3deg);
+    background:url(ori1.jpg) no-repeat;background-size:auto 112%;background-position:22% 18%}
+  .polaroid{position:absolute;top:640px;left:90px;width:420px;background:#fff;padding:16px 16px 70px;border-radius:8px;
+    box-shadow:0 22px 45px rgba(0,0,0,.5);transform:rotate(-7deg)}
+  .polaroid div{width:100%;height:340px;background:url(ori2.jpg) no-repeat;background-size:auto 115%;background-position:62% 30%}
+  .polaroid p{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#0f1f52;font-family:'Secular One';font-size:36px}
+  .footer{position:absolute;bottom:46px;left:0;right:0;text-align:center}
+  .footer .wish{font-size:36px;font-weight:500;opacity:.95}
+  .footer .from{display:inline-block;margin-top:18px;background:linear-gradient(90deg,#ffb703,#fb8500);color:#0f1f52;
+    font-family:'Secular One';font-size:44px;padding:12px 44px;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .balloons{position:absolute;top:330px;left:70px;width:240px}
+</style>
+</head>
+<body>
+<svg id="confetti" viewBox="0 0 1080 1350"></svg>
+
+<div class="logo"><div class="logo-box">
+  <div class="logo-text"><b>תיק תק</b><span>פתרונות תקשורת</span></div>
+  <div class="logo-mark">TT</div>
+</div></div>
+
+<div class="title">
+  <h1>מזל טוב אורי!</h1>
+  <h2>יום הולדת שמח</h2>
+</div>
+
+<svg class="balloons" viewBox="0 0 240 300">
+  <path d="M70 120 Q80 200 120 290" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+  <path d="M170 110 Q150 200 120 290" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+  <path d="M120 150 Q125 220 120 290" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+  <ellipse cx="70" cy="70" rx="48" ry="58" fill="#ef476f"/><path d="M64 126 l6 -8 l6 8z" fill="#ef476f"/>
+  <ellipse cx="170" cy="62" rx="46" ry="56" fill="#06d6a0"/><path d="M164 116 l6 -8 l6 8z" fill="#06d6a0"/>
+  <ellipse cx="120" cy="100" rx="44" ry="54" fill="#ffd166"/><path d="M114 152 l6 -8 l6 8z" fill="#ffd166"/>
+  <ellipse cx="55" cy="50" rx="10" ry="16" fill="#fff" opacity=".45"/>
+  <ellipse cx="155" cy="42" rx="10" ry="16" fill="#fff" opacity=".45"/>
+  <ellipse cx="106" cy="80" rx="9" ry="15" fill="#fff" opacity=".45"/>
+</svg>
+
+<div class="photo-main"></div>
+<div class="polaroid"><div></div><p>אורי אפרימה</p></div>
+
+<div class="footer">
+  <div class="wish">המון בריאות, אושר והצלחה – ושנה מדהימה!</div>
+  <div class="from">באהבה, משפחת תיק תק</div>
+</div>
+
+<script>
+  const svg=document.getElementById('confetti');const cols=['#ffd166','#ef476f','#06d6a0','#118ab2','#ffffff','#fb8500'];
+  let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+  for(let i=0;i<140;i++){const x=r()*1080,y=r()*1350,c=cols[Math.floor(r()*cols.length)],rot=r()*360;
+    const el=document.createElementNS('http://www.w3.org/2000/svg',r()<.5?'rect':'circle');
+    if(el.tagName==='rect'){el.setAttribute('x',x);el.setAttribute('y',y);el.setAttribute('width',8+r()*10);el.setAttribute('height',4+r()*6);el.setAttribute('transform',`rotate(${rot} ${x} ${y})`)}
+    else{el.setAttribute('cx',x);el.setAttribute('cy',y);el.setAttribute('r',2+r()*5)}
+    el.setAttribute('fill',c);el.setAttribute('opacity',.35+r()*.5);svg.appendChild(el)}
+</script>
+</body>
+</html>
