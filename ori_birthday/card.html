@@ -10,11 +10,11 @@
     background:radial-gradient(ellipse at 50% 30%,#1d3a8a 0%,#0f1f52 55%,#081233 100%);position:relative}
   #confetti{position:absolute;inset:0;pointer-events:none}
   .logo{position:absolute;top:44px;left:0;right:0;display:flex;justify-content:center}
-  .logo-box{display:flex;align-items:center;gap:18px;background:#fff;border-radius:999px;padding:14px 38px 14px 30px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .logo-box{display:flex;align-items:center;gap:18px;background:#fff;border-radius:999px;padding:14px 46px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
   .logo-mark{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#ffb703,#fb8500);display:flex;align-items:center;justify-content:center;font-family:'Secular One';font-size:34px;color:#0f1f52}
   .logo-text{line-height:1}
-  .logo-text b{display:block;font-family:'Secular One';font-size:42px;color:#0f1f52;letter-spacing:1px}
-  .logo-text span{display:block;font-size:20px;color:#3b4a7a;font-weight:500;margin-top:4px}
+  .logo-text{text-align:center}.logo-text b{display:block;font-family:'Rubik';font-weight:900;font-size:46px;color:#2563d6;letter-spacing:2px}
+  .logo-text span{display:block;font-size:20px;color:#1d3a8a;font-weight:500;margin-top:4px}
   .title{position:absolute;top:170px;left:0;right:0;text-align:center}
   .title h1{font-family:'Secular One';font-size:118px;line-height:1;color:#ffd166;text-shadow:0 6px 0 #c77d00,0 14px 30px rgba(0,0,0,.45)}
   .title h2{font-size:54px;font-weight:700;margin-top:14px}
@@ -29,15 +29,15 @@
   .footer .wish{font-size:36px;font-weight:500;opacity:.95}
   .footer .from{display:inline-block;margin-top:18px;background:linear-gradient(90deg,#ffb703,#fb8500);color:#0f1f52;
     font-family:'Secular One';font-size:44px;padding:12px 44px;border-radius:999px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
-  .balloons{position:absolute;top:330px;left:70px;width:240px}
+  .balloons{position:absolute;top:150px;right:30px;width:150px;transform:rotate(8deg)}
+  .mascot{position:absolute;top:318px;left:70px;height:345px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
 </style>
 </head>
 <body>
 <svg id="confetti" viewBox="0 0 1080 1350"></svg>
 
 <div class="logo"><div class="logo-box">
-  <div class="logo-text"><b>תיק תק</b><span>פתרונות תקשורת</span></div>
-  <div class="logo-mark">TT</div>
+  <div class="logo-text"><b dir="ltr">TIC TAC</b><span>פתרונות תקשורת מתקדמים</span></div>
 </div></div>
 
 <div class="title">
@@ -57,6 +57,7 @@
   <ellipse cx="106" cy="80" rx="9" ry="15" fill="#fff" opacity=".45"/>
 </svg>
 
+<img class="mascot" src="tictac_mascot.png" alt="">
 <div class="photo-main"></div>
 <div class="polaroid"><div></div><p>אורי אפרימה</p></div>
 
